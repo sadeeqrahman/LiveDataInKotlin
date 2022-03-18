@@ -4,9 +4,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
-    var usernames = MutableLiveData<String>("WAQAS RAHMAN")
+    var usernames = MutableLiveData<MutableList<String>>()
+    var mutableList: MutableList<String> = mutableListOf()
 
-    fun Update_Name(name: String) {
-        usernames.value = name
+    fun Update_Name() {
+        mutableList.add("Sadeeq Rahman")
+        mutableList.add("Waqas Rahman")
+        mutableList.add("Arham Khan")
+        usernames.value = mutableList
+
     }
 }

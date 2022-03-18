@@ -14,13 +14,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        mainViewModel  = ViewModelProvider(this).get(MainViewModel::class.java)
+        mainViewModel  = ViewModelProvider(this)[MainViewModel::class.java]
         mainViewModel.usernames.observe(this, Observer {
-            binding.username.text =  it
+            binding.username.text =  it.toString()
         })
 
         binding.updateName.setOnClickListener {
-            mainViewModel.Update_Name("SADEEQ RAHMAN")
+            mainViewModel.Update_Name()
         }
 
     }
